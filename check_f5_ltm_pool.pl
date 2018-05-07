@@ -189,7 +189,7 @@ $GetResults = sub {
 	foreach my $obj (sort keys %oidTable) {
 		
 		my($fulloid) = $oidTable{$obj}{'oid'} . "." . $oidPoolName . $oidSuffix;
-		my($cmd) = "$snmpcmd -v2c -c $community -m '' -On -Oe $hostname " . $fulloid;
+		my($cmd) = "$snmpcmd -v2c -c '$community' -m '' -On -Oe $hostname " . $fulloid;
 		
 		if ($np->opts->verbose) {
 		  print STDERR sprintf("Checking %s (base oid=%s)\n", $oidTable{$obj}{'desc'}, $oidTable{$obj}{'oid'} ) if ($np->opts->verbose >= 2);
